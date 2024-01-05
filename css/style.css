@@ -1,0 +1,784 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("../fonts/ofont.ru_Chekharda.ttf") format("truetype");
+}
+
+html {
+  height: 1500px; /* Ограничение высоты */
+}
+
+body {
+  background-color: rgb(42, 42, 42);
+  padding: 0px;
+  margin: 0px;
+  height: 1500px; /* Ограничение высоты */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+.circle-mask {
+  width: 600px;
+  height: 600px;
+  border-radius: 0% 1% 100% 1%;
+  overflow: hidden;
+  position: relative;
+  filter: drop-shadow(0px 0px 15px rgb(0, 0, 0));
+}
+
+.headbar {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(22, 22, 22, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(60px);
+  z-index: 1;
+  box-shadow: 0px 0px 20px black;
+}
+
+.imgheaddiv {
+  width: 100%;
+  height: 100px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.imghead {
+  filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+  width: 170px;
+}
+
+.textheaddiv {
+  width: 1000px;
+  height: 100px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  left: 450px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact{
+  background-color: transparent;
+  color: #fff;
+  font-size: 30px;
+  font-family: "MyFont", sans-serif;
+  padding: 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  transition: 0.5s ease;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info,
+.tours {
+  color: azure;
+  font-size: 35px;
+  font-weight: bolder;
+  cursor: pointer;
+  font-family: "MyFont", sans-serif;
+  text-shadow: 0px 0px 0px black;
+  transition: 0.5s ease;
+  text-decoration: none;
+}
+
+.info:hover,
+.contact:hover,
+.tours:hover,
+.reg-btn:hover,
+.login-btn:hover {
+  text-shadow: 0px 0px 20px rgb(255, 255, 255);
+}
+
+.loginorregdiv {
+  color: azure;
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  top: 0;
+  left: 1670px;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-btn {
+  background-color: transparent;
+  color: #fff;
+  font-size: 30px;
+  font-family: "MyFont", sans-serif;
+  padding: 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  transition: 0.5s ease;
+  position: relative;
+  top: -10px;
+  left: -5px;
+  width: 120px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reg-btn {
+  width: 200px;
+  height: 100px;
+  background-color: transparent;
+  color: #fff;
+  font-size: 30px;
+  font-family: "MyFont", sans-serif;
+  padding: 0px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0px;
+  transition: 0.5s ease;
+  position: relative;
+  top: 10px;
+  width: 100px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.palm {
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  overflow: hidden;
+  left: 1520px;
+  top: 580px;
+  border-radius: 150% 0% 0% 150%;
+  filter: drop-shadow(0px 0px 20px rgb(0, 0, 0));
+}
+
+.CUBE {
+  width: 500px;
+  height: 1000px;
+  background-color: rgb(42, 42, 42);
+  position: absolute;
+  top: 400px;
+  left: 1920px;
+} 
+
+/* Стили для модального окна входа */
+.modal-content-Login {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 300px;
+  height: 400px;
+  transform: translate(-50%, -50%) scale(0.8);
+  padding: 20px;
+  transition: top 1s ease, transform 0.5s ease-in;
+}
+
+.modal1.show .modal-content-Login {
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Стили для модального окна регистрации */
+.modal-content-Register {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  width: 300px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  transition: top 1s ease, transform 0.5s ease-in;
+}
+
+.modal1.show .modal-content-Register {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  font-size: 30px;
+  font-weight: bold;
+  right: 15px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 440px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  font-family: "MyFont", sans-serif;
+  backdrop-filter: blur(5px);
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  font-size: 40px;
+  color: #3efff9;
+  text-align: center;
+  font-family: "MyFont", sans-serif;
+}
+
+.login-box .user-box {
+  position: relative;
+  top: 50px;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+  font-family: "MyFont", sans-serif;
+}
+.login-box .user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+  font-family: "MyFont", sans-serif;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+  font-family: "MyFont", sans-serif;
+}
+
+.login-box form a {
+  top: 40px;
+  left: 70px;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  font-family: "MyFont", sans-serif;
+}
+
+.login-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+/* FFFFFFF */
+.reg-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 340px;
+  height: 440px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  font-family: "MyFont", sans-serif;
+  backdrop-filter: blur(5px);
+}
+
+.reg-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  font-size: 40px;
+  color: #3efff9;
+  text-align: center;
+  font-family: "MyFont", sans-serif;
+}
+
+.reg-box .reg1-box {
+  position: relative;
+  top: 50px;
+}
+
+.reg-box .reg1-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+  font-family: "MyFont", sans-serif;
+}
+.reg-box .reg1-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.reg-box .reg1-box input:focus ~ label,
+.reg-box .reg1-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+  font-family: "MyFont", sans-serif;
+}
+
+.reg-box form a {
+  top: 40px;
+  left: 70px;
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  margin-top: 40px;
+  letter-spacing: 4px;
+  font-family: "MyFont", sans-serif;
+}
+
+.reg-box a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 100px #03e9f4;
+}
+
+.reg-box a span {
+  position: absolute;
+  display: block;
+}
+
+.reg-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+
+.reg-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: 0.25s;
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,
+  100% {
+    top: 100%;
+  }
+}
+
+.reg-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,
+  100% {
+    right: 100%;
+  }
+}
+
+.reg-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,
+  100% {
+    bottom: 100%;
+  }
+}
+
+.nasha span,
+.prof span,
+.lvl span,
+.vibor span,
+.podxod span{
+  color: rgb(30, 0, 72);
+  font-size: 40px;
+  text-shadow: 0px 0px 10px rgb(241, 131, 255);
+}
+
+.nasha{
+  color: white;
+  font-size: 25px;
+  font-family: 'MyFont', sans-serif;
+  letter-spacing: 2px;
+  width: 600px;
+  height: 200px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  top: 250px;
+  left: 800px;
+  text-shadow: 0px 0px 10px black;
+}
+
+.prof{
+  background-color: rgba(13, 13, 13, 0.4);
+  border-radius: 15px;
+  color: white;
+  font-size: 25px;
+  font-family: 'MyFont', sans-serif;
+  letter-spacing: 2px;
+  width: 500px;
+  height: 250px;
+  margin: 0px;
+  padding: 25px;
+  position: absolute;
+  left: 100px;
+  top: 700px;
+  text-shadow: 0px 0px 10px black;
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.vibor{
+  background-color: rgba(13, 13, 13, 0.4);
+  border-radius: 15px;  
+  color: white;
+  font-size: 25px;
+  font-family: 'MyFont', sans-serif;
+  letter-spacing: 2px;
+  width: 600px;
+  height: 220px;
+  margin: 0px;
+  padding: 15px;
+  position: absolute;
+  left: 750px;
+  top: 700px;
+  text-shadow: 0px 0px 10px black;
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.podxod{
+  background-color: rgba(13, 13, 13, 0.4);
+  border-radius: 15px;
+  color: white;
+  font-size: 25px;
+  font-family: 'MyFont', sans-serif;
+  letter-spacing: 2px;
+  width: 600px;
+  height: 220px;
+  margin: 0px;
+  padding: 15px;
+  position: absolute;
+  left: 750px;
+  top: 1050px;
+  text-shadow: 0px 0px 10px black;
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.lvl{
+  border-radius: 15px;
+  background-color: rgba(13, 13, 13, 0.4);
+  color: white;
+  font-size: 25px;
+  font-family: 'MyFont', sans-serif;
+  letter-spacing: 2px;
+  width: 600px;
+  height: 220px;
+  margin: 0px;
+  padding: 15px;
+  position: absolute;
+  left: 100px;
+  top: 1050px;
+  text-shadow: 0px 0px 10px black;
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 1);
+}
+
+.downbar {
+  position:absolute ;
+  left: 0;
+  top: 1400px;
+  height:100px;
+  width:100%;
+  background-color: black;
+  border-radius: 30px 30px 0px 0px;
+  filter: drop-shadow(0px 0px 15px rgb(114, 114, 114));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont{
+  color: white;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 20px;
+  font-family: 'MyFont', sans-serif;
+  letter-spacing: 2px;
+}
+
+.TG{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 270px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.TG:hover{
+  filter: drop-shadow(0px 0px 7px rgb(0, 162, 255));
+}
+
+.INST{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 370px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.INST:hover{
+  filter: drop-shadow(0px 0px 7px rgb(255, 0, 68));
+}
+
+.WH{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 470px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.WH:hover{
+  filter: drop-shadow(0px 0px 7px rgb(0, 255, 4));
+}
+
+.VK{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 570px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.VK:hover{
+  filter: drop-shadow(0px 0px 7px rgb(93, 125, 255));
+}
+
+.NUM{
+  font-size: 20px;
+  font-family: 'MyFont', sans-serif;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 800px;
+}
+
+.adress{
+  font-size: 20px;
+  font-family: 'MyFont', sans-serif;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 1200px;
+}

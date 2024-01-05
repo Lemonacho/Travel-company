@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel - Easy</title>
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="120x120" href="./favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="mask-icon" href="./favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="fade-in">
+    <div id="scrollTarget" class="scroll-target"></div>
+    <div class="circle-mask">
+        <img src="./img/tmb_311852_116915.jpg" alt="ERROR">
+    </div>
+    <div class="headbar">
+        <div class="imgheaddiv">
+            <img src="./img/Иконка.png" alt="ERROR" class="imghead">
+        </div>
+        <div class="textheaddiv">
+            <div>
+                <a href="./index/tour.html" class="tours">Туры</a>
+            </div>
+            <div>
+                <button class="contact" onclick="scrollToBottom()">Наши контакты</button>
+            </div>  
+            <div>
+                <a href="./index.html" class="info">О нас</a>
+            </div>
+        </div>
+
+        <div class="loginorregdiv">
+            <button class="login-btn" onclick="openModalLogin()">
+                <p>Вход</p>
+            </button>
+            <button class="reg-btn" onclick="openModalReg()">
+                <p>Регистрация</p>
+            </button>
+        </div>
+    </div>
+        <div class="nasha">
+            <p><span>Наша</span> туркомпания создает незабываемые путешествия, объединяя комфорт и приключения. Открывайте мир с нами, наслаждайтесь беззаботным отдыхом и яркими впечатлениями. Ваш отдых — наша забота.</p>
+        </div>
+        <div class="prof">
+            <p><span>Профессионализм:</span> <br>Наша команда состоит из опытных специалистов, готовых обеспечить высокий уровень обслуживания и позаботиться о каждой детали вашего путешествия.</p>
+        </div>
+        <div class="vibor">
+            <p><span>Широкий выбор туров: </span><br> Мы предлагаем разнообразные туры, от экзотических приключений до роскошных отдыхов, чтобы удовлетворить различные интересы и предпочтения клиентов.</p>
+        </div>
+        <div class="podxod">
+            <p><span>Индивидуальный подход: </span><br>Мы стремимся понять потребности каждого клиента, предоставляя персонализированные решения и создавая уникальные маршруты для неповторимого отдых</p>
+        </div>
+        <div class="lvl">
+            <p><span>Высокий уровень сервиса:</span> <br>Качество обслуживания для нас приоритет. Мы предоставляем комфортные условия проживания, профессиональных гидов и надежные транспортные средства.</p>
+        </div>
+        <div class="downbar">
+                <div class="cont">
+                    <p>Наши контакты:</p>
+                </div>
+                <div>
+                    <a href="https://t.me/Dfgeak" target="_blank">
+                        <img src="./img/TG.png" alt="ERROR" class="TG">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://www.instagram.com/dfgeak?igsh=dTMyZWkyYmFxMmRv" target="_blank">
+                        <img src="./img/INSTA.png" alt="ERROR" class="INST">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://wa.me/+77025893214" target="_blank">
+                        <img src="./img/WHATSAPP.png" alt="ERROR" class="WH">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://vk.com/zaxece09" target="_blank">
+                        <img src="./img/VK.png" alt="ERROR" class="VK">
+                    </a>
+                </div>
+                <div class="NUM">
+                    Наши номера: <br>+7(777)12-34-256 <br> +7(708)24-38-548
+                </div>
+                <div class="adress">
+                    Наши адресса: <br> Астана,​ Есиль район, Улица Сарайшык, 32 <br> Астана, ​Нура район, Улица Лайлы-Мажнун, 16
+                </div>
+            </div>
+    <div class="pngpalm">
+        <img src="./img/2b03bec076051aed5bcc7464b5963e71.jpg" alt="ERROR" class="palm">
+        <div class="CUBE"></div>
+    </div>
+
+
+    <div id="modal1" class="modal1">
+        <div class="modal-content-Login">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="login-box">
+                <h2>Вход</h2>
+                <form>
+                  <div class="user-box">
+                    <input type="text" name="" required="">
+                    <label>Имя пользователя</label>
+                  </div>
+                  <div class="user-box">
+                    <input type="password" name="" required="">
+                    <label>Пароль</label>
+                  </div>
+                  <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Submit
+                  </a>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal2" class="modal1">
+        <div class="modal-content-Register">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="reg-box">
+                <h2>Регистрация</h2>
+                <form>
+                  <div class="reg1-box">
+                    <input type="text" name="" required="">
+                    <label>Имя пользователя</label>
+                  </div>
+                  <div class="reg1-box">
+                    <input type="password" name="" required="">
+                    <label>Пароль</label>
+                  </div>
+                  <a href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Submit
+                  </a>
+                </form>
+              </div>
+        </div>
+    </div>
+</div>
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

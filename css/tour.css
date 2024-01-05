@@ -1,0 +1,465 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("../fonts/ofont.ru_Chekharda.ttf") format("truetype");
+}
+
+html {
+  height: 1500px; /* Ограничение высоты */
+}
+
+body {
+  background-color: rgb(42, 42, 42);
+  padding: 0px;
+  margin: 0px;
+  height: 1400px; /* Ограничение высоты */
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body::-webkit-scrollbar {
+  width: 0px;
+}
+
+.downbar {
+  position: absolute;
+  left: 0;
+  top: 1400px;
+  height: 100px;
+  width: 100%;
+  background-color: black;
+  border-radius: 30px 30px 0px 0px;
+  filter: drop-shadow(0px 0px 15px rgb(114, 114, 114));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cont {
+  color: white;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  font-size: 20px;
+  font-family: "MyFont", sans-serif;
+  letter-spacing: 2px;
+}
+
+.TG {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 270px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.TG:hover {
+  filter: drop-shadow(0px 0px 7px rgb(0, 162, 255));
+}
+
+.INST {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 370px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.INST:hover {
+  filter: drop-shadow(0px 0px 7px rgb(255, 0, 68));
+}
+
+.WH {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 470px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.WH:hover {
+  filter: drop-shadow(0px 0px 7px rgb(0, 255, 4));
+}
+
+.VK {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 570px;
+  top: 30px;
+  filter: drop-shadow(0px 0px 0px rgb(114, 114, 114));
+  transition: 0.5s ease;
+}
+
+.VK:hover {
+  filter: drop-shadow(0px 0px 7px rgb(93, 125, 255));
+}
+
+.NUM {
+  font-size: 20px;
+  font-family: "MyFont", sans-serif;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 800px;
+}
+
+.adress {
+  font-size: 20px;
+  font-family: "MyFont", sans-serif;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+  position: absolute;
+  left: 1200px;
+}
+
+.HEAD {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.txthead {
+  color: rgb(245, 245, 245);
+  text-shadow: 0px 0px 8px rgb(226, 147, 255);
+  cursor: pointer;
+  font-size: 60px;
+  font-family: "MyFont", sans-serif;
+  text-decoration: none;
+  transition: color 1s ease-in-out; 
+  position: absolute;
+  top: 70px;
+}
+
+.txthead::before {
+  content: "Наши туры";
+  transition: content 1s ease-in-out; 
+}
+
+.txthead:hover {
+  color: orange;
+}
+
+.txthead:hover::before {
+  content: "Назад на главную";
+  color: orange;
+  text-shadow: 0px 0px 10px rgb(67, 0, 97);
+}
+
+
+.alltours {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 400px;
+}
+
+.tour1 {
+  background-image: url(../img/mayami.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour11 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  top: 250px;
+  left: 200px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour11:hover {
+  scale: 1.1;
+}
+
+.tour2 {
+  background-image: url(../img/GOA.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour22 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  top: 250px;
+  left: 600px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour22:hover {
+  scale: 1.1;
+}
+
+.tour3 {
+  background-image: url(../img/CANADA.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour33 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  top: 250px;
+  left: 1100px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour33:hover {
+  scale: 1.1;
+}
+
+.tour4 {
+  background-image: url(../img/GRYZ.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour44 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  top: 250px;
+  left: 1500px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour44:hover {
+  scale: 1.1;
+}
+
+.tour5 {
+  background-image: url(../img/ITALY.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour55 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  left: 200px;
+  top: 825px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour55:hover {
+  scale: 1.1;
+}
+
+.tour6 {
+  background-image: url(../img/TAI.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour66 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  left: 600px;
+  top: 825px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour66:hover {
+  scale: 1.1;
+}
+
+.tour7 {
+  background-image: url(../img/ARM.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour77 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  left: 1100px;
+  top: 825px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour77:hover {
+  scale: 1.1;
+}
+
+.tour8 {
+  background-image: url(../img/FRAN.jpg);
+  background-position: center; /* Центрирование фонового изображения */
+  background-size: cover; /* Заполнение всего блока фоном */
+  width: 200px;
+  height: 300px;
+  border-radius: 15px;
+  filter: drop-shadow(0px 0px 10px rgb(114, 114, 114));
+}
+
+.tour88 {
+  color: white;
+  text-align: center;
+  width: 200px;
+  height: 300px;
+  font-family: "MyFont", sans-serif;
+  font-size: 24px;
+  position: absolute;
+  left: 1500px;
+  top: 825px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.tour88:hover {
+  scale: 1.1;
+}
+
+.infoWindowMAI,
+.infoWindowGOA,
+.infoWindowCAN,
+.infoWindowGRYZ,
+.infoWindowITALY,
+.infoWindowTAI,
+.infoWindowARM,
+.infoWindowFR {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  z-index: 2;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  opacity: 0; 
+  animation: fadeInInfoWindow 0.5s ease-in-out forwards, scaleUp 0.5s ease-in-out forwards; 
+  backdrop-filter: blur(5px);
+  transform-origin: center center;
+  box-shadow: 0px 0px 15px rgb(0, 0, 0)inset;
+  padding: 1.5px; 
+  font-weight: 600;
+}
+
+@keyframes fadeInInfoWindow {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+.BACK {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  filter: blur(5px) brightness(30%);
+}
